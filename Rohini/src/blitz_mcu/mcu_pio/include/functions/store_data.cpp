@@ -11,14 +11,12 @@ void store_data(std::vector<uint8_t> payload) {
             
             // function to parse the struct
             count = parse_struct<Counter>(payload); // count.a, count.b, count.c, count.d, based on your interface
-        if (id == SPEED) {
+        }
+            if (id == SPEED) {
             
             // function to parse the struct
             speed = parse_struct<Speed>(payload); 
-        if (id == PWM) {
-            
-            // function to parse the struct
-            pwm = parse_struct<Pwm>(payload);         
+               
         }
     }
 }

@@ -17,19 +17,20 @@ struct Counter {
 #pragma pack(pop)
 #pragma pack(push, 1)
 struct Speed {
-    
+    uint8_t id;
     float vx;
     float vy;
-    float vtheta;
+    float theta;
 
 };  
 #pragma pack(pop)
 #pragma pack(push, 1)
 struct Pwm {
-    int32 m1;
-    int32 m2;
-    int32 m3;
-    int32 m4;
+    uint8_t id;
+    int32_t m1;
+    int32_t m2;
+    int32_t m3;
+    int32_t m4;
 
 };  
 #pragma pack(pop)

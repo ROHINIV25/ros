@@ -25,6 +25,10 @@ install(PROGRAMS
     blitz/parser.py
     blitz/blitz.py
     blitz/interfaces.py
+    blitz/convert.py
+
+    
+
 
     demo/blitz_demo.py
 
