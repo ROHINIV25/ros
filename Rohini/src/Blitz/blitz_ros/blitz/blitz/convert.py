@@ -9,7 +9,7 @@ class Converter(Node):
     def __init__(self):
         super().__init__("converter")
         self.subscriber = self.create_subscription(Joy, "/joy", self.subscriber_callback, 10)
-        self.publisher = self.create_publisher(Speed, "/Speed", 10)
+        self.publisher = self.create_publisher(Speed, "/speed", 10)
         self.timer = self.create_timer(0.1, self.my_publisher) 
         self.vx = 0.0
         self.vy = 0.0
@@ -19,7 +19,7 @@ class Converter(Node):
         msg = Speed()
         msg.vx = self.vx
         msg.vy = self.vy
-        msg.theta = self.theta
+        msg.vtheta = self.theta
         self.publisher.publish(msg)
 
     def subscriber_callback(self, msg):

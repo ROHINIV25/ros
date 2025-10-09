@@ -20,9 +20,9 @@
 //Move this nigga to the creating struct which is ig constants part
 int sign_matrix[4][3] = {
   {1, 1, 1},   // Motor 1 (Top-Left)
-  {1, -1, 1},  // Motor 2 (Top-Right)
-  {-1, -1, 1}, // Motor 3 (Bottom-Left)
-  {-1, 1, 1}   // Motor 4 (Bottom-Right)
+  {1, -1, -1},  // Motor 2 (Top-Right)
+  {1, 1, -1}, // Motor 3 (Bottom-Left)
+  {1, -1, 1}   // Motor 4 (Bottom-Right)
 };
 
 
@@ -45,29 +45,32 @@ Pwm calculateMotorVelocities(int pwm_vx, int pwm_vy, int pwm_w) {
     Pwm motors;
       
      // Create velocity vector [vx, vy, w]
-    int velocity_vector[3][1] = {
-        {pwm_vx},
-        {pwm_vy},
-        {pwm_w}
-    };
+  //   int velocity_vector[3][1] = {
+  //       {pwm_vx},
+  //       {pwm_vy},
+  //       {pwm_w}
+  //   };
   
-    // Result matrix for motor velocities
-    int motor_velocity_matrix[4][1];
+  //   // Result matrix for motor velocities
+  //   int motor_velocity_matrix[4][1];
   
-  // Matrix multiplication: motor_velocity_matrix = sign_matrix × velocity_vector
-    for (int i = 0; i < 4; i++) {
-        motor_velocity_matrix[i][0] = 0;
-        for (int j = 0; j < 3; j++) {
-        motor_velocity_matrix[i][0] += sign_matrix[i][j] * velocity_vector[j][0];
-        }
-    }
+  // // Matrix multiplication: motor_velocity_matrix = sign_matrix × velocity_vector
+  //   for (int i = 0; i < 4; i++) {
+  //       motor_velocity_matrix[i][0] = 0;
+  //       for (int j = 0; j < 3; j++) {
+  //       motor_velocity_matrix[i][0] += sign_matrix[i][j] * velocity_vector[j][0];
+  //       }
+  //   }
   
-  // Store calculated velocities in struct
-    motors.m1 = motor_velocity_matrix[0][0];
-    motors.m2 = motor_velocity_matrix[1][0];
-    motors.m3 = motor_velocity_matrix[2][0];
-    motors.m4 = motor_velocity_matrix[3][0];
+  // // Store calculated velocities in struct
+  //   motors.m1 = motor_velocity_matrix[0][0];
+  //   motors.m2 = motor_velocity_matrix[1][0];
+  //   motors.m3 = motor_velocity_matrix[2][0];
+  //   motors.m4 = motor_velocity_matrix[3][0];
   
+    motors.m1 = pwm_vx;
+    motors.m2 = pwm_vy;
+    motors.m3 = pwm_w;
     return motors;
     }
 
@@ -131,23 +134,36 @@ void loop() {
     float target_vy1 = speed.vy;
     float target_w1 = speed.theta;
 
-    float target_vx = map(target_vx1, -1.0, 1.0, -5.0, 5.0);
-    float target_vy = map(target_vy1, -1.0, 1.0, -5.0, 5.0);
-    float target_w = map(target_w1, -1.0, 1.0, -5.0, 5.0);
+    // float target_vx = map(target_vx1, -1.0, 1.0, -5.0, 5.0);
+    // float target_vy = map(target_vy1, -1.0, 1.0, -5.0, 5.0);
+    // float target_w = map(target_w1, -1.0, 1.0, -5.0, 5.0);    float target_vx = map(target_vx1, -1.0, 1.0, -5.0, 5.0);
+    // float target_vy = map(target_vy1, -1.0, 1.0, -5.0, 5.0);
+    // float target_w = map(target_w1, -1.0, 1.0, -5.0, 5.0);
+
+    // //In the above nigga receive data from custom interface and store the data
+
+    // //Scaling:
+    // float vx_scaled = map(target_vx*100, -500, 500, -255, 255);
+    // float vy_scaled = map(target_vy*100, -500, 500, -255, 255);
+    // float w_scaled = map(target_w*100, -500, 500, -255, 255);
+float vx_scaled=target_vx1*255.0;
+float vy_scaled=target_vy1*255.0;
+float w_scaled=target_w1*255.0;
 
     //In the above nigga receive data from custom interface and store the data
 
-    //Scaling:
-    int vx_scaled = map(target_vx*100, -500, 500, -255, 255);
-    int vy_scaled = map(target_vy*100, -500, 500, -255, 255);
-    int w_scaled = map(target_w*100, -500, 500, -255, 255);
+    // //Scaling:
+    // float vx_scaled = map(target_vx*100, -500, 500, -255, 255);
+    // float vy_scaled = map(target_vy*100, -500, 500, -255, 255);
+    // float w_scaled = map(target_w*100, -500, 500, -255, 255);
+    
 
     //Defining this uhh uhhh data type
-    MotorVelocities motor_speeds;
+    // Pwm motor_speeds;
 
     //The below nigga needs pwm as parameters
-    motor_speeds = calculateMotorVelocities(vx_scaled, vy_scaled, w_scaled);
-    setMotorSpeeds(motor_speeds.v1, motor_speeds.v2, motor_speeds.v3, motor_speeds.v4);
+    motor_speeds = calculateMotorVelocities((int)vx_scaled, (int)vy_scaled, (int)w_scaled);
+    setMotorSpeeds(motor_speeds.m1, motor_speeds.m2, motor_speeds.m3, motor_speeds.m4);
     delay(10);
     t1.spin();
     
