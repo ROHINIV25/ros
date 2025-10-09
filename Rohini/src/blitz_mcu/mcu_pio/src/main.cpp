@@ -41,8 +41,8 @@ void setup(){
     Serial.println("Omni-Directional Robot Started...");
 
 }   
-MotorVelocities calculateMotorVelocities(int pwm_vx, int pwm_vy, int pwm_w) {
-    MotorVelocities motors;
+Pwm calculateMotorVelocities(int pwm_vx, int pwm_vy, int pwm_w) {
+    Pwm motors;
       
      // Create velocity vector [vx, vy, w]
     int velocity_vector[3][1] = {
@@ -63,10 +63,10 @@ MotorVelocities calculateMotorVelocities(int pwm_vx, int pwm_vy, int pwm_w) {
     }
   
   // Store calculated velocities in struct
-    motors.v1 = motor_velocity_matrix[0][0];
-    motors.v2 = motor_velocity_matrix[1][0];
-    motors.v3 = motor_velocity_matrix[2][0];
-    motors.v4 = motor_velocity_matrix[3][0];
+    motors.m1 = motor_velocity_matrix[0][0];
+    motors.m2 = motor_velocity_matrix[1][0];
+    motors.m3 = motor_velocity_matrix[2][0];
+    motors.m4 = motor_velocity_matrix[3][0];
   
     return motors;
     }
