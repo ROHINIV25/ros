@@ -29,48 +29,48 @@ int sign_matrix[4][3] = {
 
 void setup(){
 
-    pinMode(MOTOR1_DIR_PIN, OUTPUT);
-    pinMode(MOTOR2_PWM_PIN, OUTPUT);
-    pinMode(MOTOR2_DIR_PIN, OUTPUT);
-    pinMode(MOTOR3_PWM_PIN, OUTPUT);
-    pinMode(MOTOR3_DIR_PIN, OUTPUT);
-    pinMode(MOTOR4_PWM_PIN, OUTPUT);
-    pinMode(MOTOR4_DIR_PIN, OUTPUT);
+    // pinMode(MOTOR1_DIR_PIN, OUTPUT);
+    // pinMode(MOTOR2_PWM_PIN, OUTPUT);
+    // pinMode(MOTOR2_DIR_PIN, OUTPUT);
+    // pinMode(MOTOR3_PWM_PIN, OUTPUT);
+    // pinMode(MOTOR3_DIR_PIN, OUTPUT);
+    // pinMode(MOTOR4_PWM_PIN, OUTPUT);
+    // pinMode(MOTOR4_DIR_PIN, OUTPUT);
     
-    Serial.begin(9600);
+    Serial.begin(115200);
     Serial.println("Omni-Directional Robot Started...");
 
 }   
-Pwm calculateMotorVelocities(int pwm_vx, int pwm_vy, int pwm_w) {
+Pwm calculateMotorVelocities(int vx, int vy, int vw) {
     Pwm motors;
       
-     // Create velocity vector [vx, vy, w]
-  //   int velocity_vector[3][1] = {
-  //       {pwm_vx},
-  //       {pwm_vy},
-  //       {pwm_w}
-  //   };
+    //  Create velocity vector [vx, vy, w]
+    int velocity_vector[3][1] = {
+        {vx},
+        {vy},
+        {vw}
+    };
   
-  //   // Result matrix for motor velocities
-  //   int motor_velocity_matrix[4][1];
+    // Result matrix for motor velocities
+    int motor_velocity_matrix[4][1];
   
-  // // Matrix multiplication: motor_velocity_matrix = sign_matrix × velocity_vector
-  //   for (int i = 0; i < 4; i++) {
-  //       motor_velocity_matrix[i][0] = 0;
-  //       for (int j = 0; j < 3; j++) {
-  //       motor_velocity_matrix[i][0] += sign_matrix[i][j] * velocity_vector[j][0];
-  //       }
-  //   }
+  // Matrix multiplication: motor_velocity_matrix = sign_matrix × velocity_vector
+    for (int i = 0; i < 4; i++) {
+        motor_velocity_matrix[i][0] = 0;
+        for (int j = 0; j < 3; j++) {
+        motor_velocity_matrix[i][0] += sign_matrix[i][j] * velocity_vector[j][0];
+        }
+    }
   
-  // // Store calculated velocities in struct
-  //   motors.m1 = motor_velocity_matrix[0][0];
-  //   motors.m2 = motor_velocity_matrix[1][0];
-  //   motors.m3 = motor_velocity_matrix[2][0];
-  //   motors.m4 = motor_velocity_matrix[3][0];
+  // Store calculated velocities in struct
+    motors.m1 = motor_velocity_matrix[0][0];
+    motors.m2 = motor_velocity_matrix[1][0];
+    motors.m3 = motor_velocity_matrix[2][0];
+    motors.m4 = motor_velocity_matrix[3][0];
   
-    motors.m1 = pwm_vx;
-    motors.m2 = pwm_vy;
-    motors.m3 = pwm_w;
+    // motors.m1 = vx;
+    // motors.m2 = vy;
+    // motors.m3 = vw;
     return motors;
     }
 
@@ -146,9 +146,10 @@ void loop() {
     // float vx_scaled = map(target_vx*100, -500, 500, -255, 255);
     // float vy_scaled = map(target_vy*100, -500, 500, -255, 255);
     // float w_scaled = map(target_w*100, -500, 500, -255, 255);
-float vx_scaled=target_vx1*255.0;
-float vy_scaled=target_vy1*255.0;
-float w_scaled=target_w1*255.0;
+float vx_scaled=target_vx1*80;
+float vy_scaled=target_vy1*80;
+float w_scaled=target_w1*80;
+
 
     //In the above nigga receive data from custom interface and store the data
 
@@ -163,8 +164,8 @@ float w_scaled=target_w1*255.0;
 
     //The below nigga needs pwm as parameters
     motor_speeds = calculateMotorVelocities((int)vx_scaled, (int)vy_scaled, (int)w_scaled);
-    setMotorSpeeds(motor_speeds.m1, motor_speeds.m2, motor_speeds.m3, motor_speeds.m4);
-    delay(10);
+    // setMotorSpeeds(motor_speeds.m1, motor_speeds.m2, motor_speeds.m3, motor_speeds.m4);
+    // delay(10);
     t1.spin();
     
 }

@@ -72,7 +72,7 @@ blitz_interfaces = {
        topic="/pwm",
        msg_id=5,
        struct_fmt="iiii",
-       fields=["motor1","motor2","motor3",],
+       fields=["motor1","motor2","motor3","motor4"],
        ros_msg=Pwm,
        from_mcu=True
     )
