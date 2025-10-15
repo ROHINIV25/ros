@@ -1,41 +1,41 @@
 #include "include_all.cpp"
 
 //Top-Left Wheel
-#define MOTOR1_PWM_PIN  19  
-#define MOTOR1_DIR_PIN  20  
+#define MOTOR1_PWM_PIN  32
+#define MOTOR1_DIR_PIN  33  
 
 //Top-Right Wheel
-#define MOTOR2_PWM_PIN  7
-#define MOTOR2_DIR_PIN  9
+#define MOTOR2_LPWM_PIN  13
+#define MOTOR2_RPWM_PIN  12
 
 //Bottom-Left Wheel
-#define MOTOR3_PWM_PIN  2
-#define MOTOR3_DIR_PIN  1
+#define MOTOR3_PWM_PIN  14
+#define MOTOR3_DIR_PIN  27
 
 //Bottom-Right Wheel
-#define MOTOR4_PWM_PIN  14
-#define MOTOR4_DIR_PIN  12
+#define MOTOR4_PWM_PIN  26
+#define MOTOR4_DIR_PIN  25
 
 
 //Move this nigga to the creating struct which is ig constants part
 int sign_matrix[4][3] = {
-  {1, 1, 1},   // Motor 1 (Top-Left)
-  {1, -1, -1},  // Motor 2 (Top-Right)
-  {1, 1, -1}, // Motor 3 (Bottom-Left)
-  {1, -1, 1}   // Motor 4 (Bottom-Right)
+  {1, -1, 1},   // Motor 1 (Top-Left)
+  {1, 1, 1},  // Motor 2 (Top-Right)
+  {-1, 1, 1}, // Motor 3 (Bottom-Left)
+  {-1, -1, 1}   // Motor 4 (Bottom-Right)
 };
 
 
 
 void setup(){
 
-    // pinMode(MOTOR1_DIR_PIN, OUTPUT);
-    // pinMode(MOTOR2_PWM_PIN, OUTPUT);
-    // pinMode(MOTOR2_DIR_PIN, OUTPUT);
-    // pinMode(MOTOR3_PWM_PIN, OUTPUT);
-    // pinMode(MOTOR3_DIR_PIN, OUTPUT);
-    // pinMode(MOTOR4_PWM_PIN, OUTPUT);
-    // pinMode(MOTOR4_DIR_PIN, OUTPUT);
+    pinMode(MOTOR1_DIR_PIN, OUTPUT);
+    pinMode(MOTOR2_LPWM_PIN, OUTPUT);
+    pinMode(MOTOR2_RPWM_PIN, OUTPUT);
+    pinMode(MOTOR3_PWM_PIN, OUTPUT);
+    pinMode(MOTOR3_DIR_PIN, OUTPUT);
+    pinMode(MOTOR4_PWM_PIN, OUTPUT);
+    pinMode(MOTOR4_DIR_PIN, OUTPUT);
     
     Serial.begin(115200);
     Serial.println("Omni-Directional Robot Started...");
@@ -90,13 +90,16 @@ void setMotorSpeeds(int v1, int v2, int v3, int v4) {
   
   // Motor 2
   if (v2 < 0) {
-    digitalWrite(MOTOR2_DIR_PIN, LOW);
-    analogWrite(MOTOR2_PWM_PIN, abs(v2));
+    analogWrite(MOTOR2_LPWM_PIN, 0);
+    analogWrite(MOTOR2_RPWM_PIN, abs(v2));
   } else if (v2 > 0) {
-    digitalWrite(MOTOR2_DIR_PIN, HIGH);
-    analogWrite(MOTOR2_PWM_PIN, v2);
+    analogWrite(MOTOR2_LPWM_PIN, abs(v2));
+    analogWrite(MOTOR2_RPWM_PIN, 0);
   } else {
-    analogWrite(MOTOR2_PWM_PIN, 0);
+    analogWrite(MOTOR2_RPWM_PIN, 0);
+
+    analogWrite(MOTOR2_LPWM_PIN, 0);
+
   }
   
   // Motor 3
@@ -146,9 +149,9 @@ void loop() {
     // float vx_scaled = map(target_vx*100, -500, 500, -255, 255);
     // float vy_scaled = map(target_vy*100, -500, 500, -255, 255);
     // float w_scaled = map(target_w*100, -500, 500, -255, 255);
-float vx_scaled=target_vx1*80;
-float vy_scaled=target_vy1*80;
-float w_scaled=target_w1*80;
+    float vx_scaled=target_vx1*80;
+    float vy_scaled=target_vy1*80;
+    float w_scaled=target_w1*80;
 
 
     //In the above nigga receive data from custom interface and store the data
@@ -164,8 +167,7 @@ float w_scaled=target_w1*80;
 
     //The below nigga needs pwm as parameters
     motor_speeds = calculateMotorVelocities((int)vx_scaled, (int)vy_scaled, (int)w_scaled);
-    // setMotorSpeeds(motor_speeds.m1, motor_speeds.m2, motor_speeds.m3, motor_speeds.m4);
-    // delay(10);
+    setMotorSpeeds(motor_speeds.m1, (motor_speeds.m2), motor_speeds.m3, motor_speeds.m4);
     t1.spin();
     
 }

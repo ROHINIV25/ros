@@ -17,4 +17,4 @@ void timer_cb(){
 
 }
 
-BlitzTimer t1(timer_cb, 100);
+BlitzTimer t1(timer_cb, 10);

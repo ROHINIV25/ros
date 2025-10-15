@@ -10,26 +10,19 @@ class Converter(Node):
         super().__init__("converter")
         self.subscriber = self.create_subscription(Joy, "/joy", self.subscriber_callback, 10)
         self.publisher = self.create_publisher(Speed, "/speed", 10)
-        self.timer = self.create_timer(0.1, self.my_publisher) 
         self.vx = 0.0
         self.vy = 0.0
         self.theta = 0.0
 
-    def my_publisher(self):
-        msg = Speed()
-        msg.vx = self.vx
-        msg.vy = self.vy
-        msg.vtheta = self.theta
-        self.publisher.publish(msg)
-
     def subscriber_callback(self, msg):
-        self.vx = msg.axes[0]
-        self.vy = msg.axes[1]
-        self.theta = msg.axes[2]
 
-    def scale(self, value, from_low, from_high, to_low, to_high):
-        return (value - from_low) * (to_high - to_low) / (from_high - from_low) + to_low
+        vel_msg = Speed()
+        vel_msg.vx = msg.axes[0]
+        vel_msg.vy = msg.axes[1]
+        vel_msg.vtheta = msg.axes[2]
 
+        self.publisher.publish(vel_msg)
+        
 def main(args=None):
     rclpy.init(args=args)
     node = Converter()
