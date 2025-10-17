@@ -1,0 +1,9 @@
+{
+  "package_name": "robot_interfaces",
+  "non_idl_tuples": [
+    "/home/ani/blitz_ws/src/blitz_ros/robot_interfaces:msg/Counter.msg",
+    "/home/ani/blitz_ws/src/blitz_ros/robot_interfaces:msg/Custom.msg",
+    "/home/ani/blitz_ws/src/blitz_ros/robot_interfaces:msg/Speed.msg",
+    "/home/ani/blitz_ws/src/blitz_ros/robot_interfaces:msg/Pwm.msg"
+  ]
+}

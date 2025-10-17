@@ -1,0 +1,163 @@
+// generated from rosidl_generator_cpp/resource/idl__traits.hpp.em
+// with input from robot_interfaces:msg/Pwm.idl
+// generated code does not contain a copyright notice
+
+// IWYU pragma: private, include "robot_interfaces/msg/pwm.hpp"
+
+
+#ifndef ROBOT_INTERFACES__MSG__DETAIL__PWM__TRAITS_HPP_
+#define ROBOT_INTERFACES__MSG__DETAIL__PWM__TRAITS_HPP_
+
+#include <stdint.h>
+
+#include <sstream>
+#include <string>
+#include <type_traits>
+
+#include "robot_interfaces/msg/detail/pwm__struct.hpp"
+#include "rosidl_runtime_cpp/traits.hpp"
+
+namespace robot_interfaces
+{
+
+namespace msg
+{
+
+inline void to_flow_style_yaml(
+  const Pwm & msg,
+  std::ostream & out)
+{
+  out << "{";
+  // member: motor1
+  {
+    out << "motor1: ";
+    rosidl_generator_traits::value_to_yaml(msg.motor1, out);
+    out << ", ";
+  }
+
+  // member: motor2
+  {
+    out << "motor2: ";
+    rosidl_generator_traits::value_to_yaml(msg.motor2, out);
+    out << ", ";
+  }
+
+  // member: motor3
+  {
+    out << "motor3: ";
+    rosidl_generator_traits::value_to_yaml(msg.motor3, out);
+    out << ", ";
+  }
+
+  // member: motor4
+  {
+    out << "motor4: ";
+    rosidl_generator_traits::value_to_yaml(msg.motor4, out);
+  }
+  out << "}";
+}  // NOLINT(readability/fn_size)
+
+inline void to_block_style_yaml(
+  const Pwm & msg,
+  std::ostream & out, size_t indentation = 0)
+{
+  // member: motor1
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "motor1: ";
+    rosidl_generator_traits::value_to_yaml(msg.motor1, out);
+    out << "\n";
+  }
+
+  // member: motor2
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "motor2: ";
+    rosidl_generator_traits::value_to_yaml(msg.motor2, out);
+    out << "\n";
+  }
+
+  // member: motor3
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "motor3: ";
+    rosidl_generator_traits::value_to_yaml(msg.motor3, out);
+    out << "\n";
+  }
+
+  // member: motor4
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "motor4: ";
+    rosidl_generator_traits::value_to_yaml(msg.motor4, out);
+    out << "\n";
+  }
+}  // NOLINT(readability/fn_size)
+
+inline std::string to_yaml(const Pwm & msg, bool use_flow_style = false)
+{
+  std::ostringstream out;
+  if (use_flow_style) {
+    to_flow_style_yaml(msg, out);
+  } else {
+    to_block_style_yaml(msg, out);
+  }
+  return out.str();
+}
+
+}  // namespace msg
+
+}  // namespace robot_interfaces
+
+namespace rosidl_generator_traits
+{
+
+[[deprecated("use robot_interfaces::msg::to_block_style_yaml() instead")]]
+inline void to_yaml(
+  const robot_interfaces::msg::Pwm & msg,
+  std::ostream & out, size_t indentation = 0)
+{
+  robot_interfaces::msg::to_block_style_yaml(msg, out, indentation);
+}
+
+[[deprecated("use robot_interfaces::msg::to_yaml() instead")]]
+inline std::string to_yaml(const robot_interfaces::msg::Pwm & msg)
+{
+  return robot_interfaces::msg::to_yaml(msg);
+}
+
+template<>
+inline const char * data_type<robot_interfaces::msg::Pwm>()
+{
+  return "robot_interfaces::msg::Pwm";
+}
+
+template<>
+inline const char * name<robot_interfaces::msg::Pwm>()
+{
+  return "robot_interfaces/msg/Pwm";
+}
+
+template<>
+struct has_fixed_size<robot_interfaces::msg::Pwm>
+  : std::integral_constant<bool, true> {};
+
+template<>
+struct has_bounded_size<robot_interfaces::msg::Pwm>
+  : std::integral_constant<bool, true> {};
+
+template<>
+struct is_message<robot_interfaces::msg::Pwm>
+  : std::true_type {};
+
+}  // namespace rosidl_generator_traits
+
+#endif  // ROBOT_INTERFACES__MSG__DETAIL__PWM__TRAITS_HPP_

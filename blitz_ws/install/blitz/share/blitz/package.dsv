@@ -1,0 +1,8 @@
+source;share/blitz/hook/cmake_prefix_path.ps1
+source;share/blitz/hook/cmake_prefix_path.dsv
+source;share/blitz/hook/cmake_prefix_path.sh
+source;share/blitz/local_setup.bash
+source;share/blitz/local_setup.dsv
+source;share/blitz/local_setup.ps1
+source;share/blitz/local_setup.sh
+source;share/blitz/local_setup.zsh

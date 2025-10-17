@@ -1,0 +1,59 @@
+[0.013s] Invoking command in '/home/ani/blitz_ws/build/blitz': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ani/blitz_ws/src/blitz_ros/blitz -DCMAKE_INSTALL_PREFIX=/home/ani/blitz_ws/install/blitz
+[0.177s] -- The C compiler identification is GNU 13.3.0
+[0.301s] -- The CXX compiler identification is GNU 13.3.0
+[0.332s] -- Detecting C compiler ABI info
+[0.462s] -- Detecting C compiler ABI info - done
+[0.477s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.479s] -- Detecting C compile features
+[0.480s] -- Detecting C compile features - done
+[0.495s] -- Detecting CXX compiler ABI info
+[0.637s] -- Detecting CXX compiler ABI info - done
+[0.652s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.653s] -- Detecting CXX compile features
+[0.653s] -- Detecting CXX compile features - done
+[0.658s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.862s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.135s] -- Configuring done (1.1s)
+[1.138s] -- Generating done (0.0s)
+[1.140s] -- Build files have been written to: /home/ani/blitz_ws/build/blitz
+[1.146s] Invoked command in '/home/ani/blitz_ws/build/blitz' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ani/blitz_ws/src/blitz_ros/blitz -DCMAKE_INSTALL_PREFIX=/home/ani/blitz_ws/install/blitz
+[1.149s] Invoking command in '/home/ani/blitz_ws/build/blitz': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ani/blitz_ws/build/blitz -- -j32 -l32
+[1.203s] Invoked command in '/home/ani/blitz_ws/build/blitz' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ani/blitz_ws/build/blitz -- -j32 -l32
+[1.217s] Invoking command in '/home/ani/blitz_ws/build/blitz': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ani/blitz_ws/build/blitz
+[1.227s] -- Install configuration: ""
+[1.228s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//blitz
+[1.228s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//blitz/convert.py
+[1.228s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//blitz/tester.py
+[1.228s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//blitz/interfaces.py
+[1.229s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//blitz/blitz.py
+[1.229s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//blitz/parser.py
+[1.229s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//blitz/packer.py
+[1.229s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//blitz/__pycache__
+[1.229s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//blitz/__pycache__/interfaces.cpython-310.pyc
+[1.229s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//blitz/__pycache__/blitz.cpython-310.pyc
+[1.230s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//demo
+[1.230s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//demo/blitz_demo.py
+[1.230s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//launch
+[1.230s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz//launch/blitz.launch.py
+[1.230s] -- Installing: /home/ani/blitz_ws/install/blitz/lib/blitz/packer.py
+[1.231s] -- Installing: /home/ani/blitz_ws/install/blitz/lib/blitz/parser.py
+[1.231s] -- Installing: /home/ani/blitz_ws/install/blitz/lib/blitz/blitz.py
+[1.231s] -- Installing: /home/ani/blitz_ws/install/blitz/lib/blitz/interfaces.py
+[1.231s] -- Installing: /home/ani/blitz_ws/install/blitz/lib/blitz/convert.py
+[1.231s] -- Installing: /home/ani/blitz_ws/install/blitz/lib/blitz/blitz_demo.py
+[1.231s] -- Installing: /home/ani/blitz_ws/install/blitz/share/ament_index/resource_index/package_run_dependencies/blitz
+[1.231s] -- Installing: /home/ani/blitz_ws/install/blitz/share/ament_index/resource_index/parent_prefix_path/blitz
+[1.232s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/environment/ament_prefix_path.sh
+[1.232s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/environment/ament_prefix_path.dsv
+[1.232s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/environment/path.sh
+[1.232s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/environment/path.dsv
+[1.232s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/local_setup.bash
+[1.232s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/local_setup.sh
+[1.233s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/local_setup.zsh
+[1.233s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/local_setup.dsv
+[1.233s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/package.dsv
+[1.233s] -- Installing: /home/ani/blitz_ws/install/blitz/share/ament_index/resource_index/packages/blitz
+[1.233s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/cmake/blitzConfig.cmake
+[1.233s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/cmake/blitzConfig-version.cmake
+[1.233s] -- Installing: /home/ani/blitz_ws/install/blitz/share/blitz/package.xml
+[1.234s] Invoked command in '/home/ani/blitz_ws/build/blitz' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ani/blitz_ws/build/blitz

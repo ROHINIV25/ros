@@ -1,0 +1,4 @@
+source;share/blitz/local_setup.bash
+source;share/blitz/local_setup.dsv
+source;share/blitz/local_setup.sh
+source;share/blitz/local_setup.zsh
